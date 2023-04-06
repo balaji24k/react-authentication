@@ -23,6 +23,11 @@ export const AuthContextProvider = props => {
         localStorage.removeItem('token')
     };
 
+    setTimeout(()=>{
+        localStorage.clear('token');
+        setToken(null);
+    },5*60*1000);
+
     const contextValue = {
         token : token,
         isLoggedIn : userIsLoggedIn,
